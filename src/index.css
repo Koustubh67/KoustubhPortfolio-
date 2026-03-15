@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode (default) */
+:root {
+  --color-brown: 83 66 62;
+  --color-lightBrown: 100 85 80;
+  --color-darkBrown: 44 37 35;
+  --color-black: 30 25 23;
+  --color-white: 241 225 217;
+  --color-cyan: 21 209 233;
+  --color-lightCyan: 136 229 240;
+  --color-darkCyan: 0 159 179;
+  --color-orange: 251 151 24;
+  --color-lightOrange: 250 194 123;
+  --color-darkOrange: 210 132 34;
+  --color-grey: 98 105 101;
+  --color-lightGrey: 151 133 128;
+  --color-darkGrey: 63 68 65;
+}
+
+/* Light mode */
+:root.light {
+  --color-brown: 232 221 216;
+  --color-lightBrown: 196 181 173;
+  --color-darkBrown: 245 240 237;
+  --color-black: 249 245 243;
+  --color-white: 44 37 35;
+  --color-cyan: 0 151 167;
+  --color-lightCyan: 0 131 143;
+  --color-darkCyan: 0 96 100;
+  --color-orange: 230 126 0;
+  --color-lightOrange: 204 109 0;
+  --color-darkOrange: 179 89 0;
+  --color-grey: 160 154 151;
+  --color-lightGrey: 107 95 90;
+  --color-darkGrey: 212 204 200;
+}
+
+body {
+  background-color: rgb(var(--color-darkBrown));
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Force light text inside dark containers (e.g., gradient cards) */
+.force-light {
+  --color-white: 241 225 217;
+  --color-lightGrey: 151 133 128;
+  --color-cyan: 21 209 233;
+  --color-orange: 251 151 24;
+}
+
+nav,
+section,
+div:not([class*="animate-"]),
+p,
+h1,
+h2,
+h3,
+h4,
+span,
+a,
+button,
+footer,
+main {
+  transition: background-color 0.4s ease, border-color 0.4s ease,
+    color 0.4s ease;
+}
