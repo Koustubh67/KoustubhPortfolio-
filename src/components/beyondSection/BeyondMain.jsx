@@ -79,21 +79,21 @@ const BeyondMain = () => {
               alt=""
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
             />
-          </div>
 
-          {/* Navigation arrows */}
-          <button
-            onClick={prev}
-            className="absolute left-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
-          >
-            <BsChevronLeft />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
-          >
-            <BsChevronRight />
-          </button>
+            {/* Navigation arrows */}
+            <button
+              onClick={prev}
+              className="absolute left-2 lg:left-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
+            >
+              <BsChevronLeft />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-2 lg:right-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
+            >
+              <BsChevronRight />
+            </button>
+          </div>
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
