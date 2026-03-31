@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ProjectsText from "./ProjectsText";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
 import { BsArrowRight, BsGithub, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import {
@@ -196,11 +196,20 @@ const ProjectCard = ({ project }) => (
 
 const ProjectsMain = () => {
   const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
   const perPage = 2;
   const totalPages = Math.ceil(projects.length / perPage);
 
-  const prev = () => setPage((p) => (p === 0 ? totalPages - 1 : p - 1));
-  const next = () => setPage((p) => (p === totalPages - 1 ? 0 : p + 1));
+  const next = useCallback(() => { setDirection(1); setPage((p) => (p === totalPages - 1 ? 0 : p + 1)); }, [totalPages]);
+  const prev = () => { setDirection(-1); setPage((p) => (p === 0 ? totalPages - 1 : p - 1)); };
+
+  // Auto-slide every 4 seconds, pause on hover
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [paused, next]);
 
   const currentProjects = projects.slice(page * perPage, page * perPage + perPage);
 
@@ -215,20 +224,33 @@ const ProjectsMain = () => {
         <ProjectsText />
       </motion.div>
 
-      <div className="relative mt-12">
+      <div
+        className="relative mt-12"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         {/* Carousel cards */}
-        <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-8">
-          {currentProjects.map((project, index) => (
-            <motion.div
-              key={page + "-" + index}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial={{ opacity: 0, x: direction * 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction * -80 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="grid lg:grid-cols-2 sm:grid-cols-1 gap-8"
+          >
+            {currentProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Navigation arrows */}
         <button
@@ -244,18 +266,26 @@ const ProjectsMain = () => {
           <BsChevronRight className="text-lg" />
         </button>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        {/* Dots with progress */}
+        <div className="flex justify-center gap-3 mt-8">
           {Array.from({ length: totalPages }).map((_, i) => (
             <button
               key={i}
-              onClick={() => setPage(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === page
-                  ? "bg-cyan w-6"
-                  : "bg-lightBrown hover:bg-lightGrey"
+              onClick={() => { setDirection(i > page ? 1 : -1); setPage(i); }}
+              className={`h-1.5 rounded-full transition-all duration-300 overflow-hidden ${
+                i === page ? "w-10 bg-cyan/30" : "w-3 bg-lightBrown hover:bg-lightGrey"
               }`}
-            />
+            >
+              {i === page && (
+                <motion.div
+                  className="h-full bg-cyan rounded-full"
+                  initial={{ width: "0%" }}
+                  animate={{ width: paused ? undefined : "100%" }}
+                  transition={{ duration: 4, ease: "linear" }}
+                  key={page}
+                />
+              )}
+            </button>
           ))}
         </div>
       </div>
