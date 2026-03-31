@@ -2,7 +2,6 @@ import NavbarLogo from "./NavbarLogo";
 import NavbarLinks from "./NavbarLinks";
 import NavbarBtn from "./NavbarBtn";
 import NavbarToggler from "./NavbarToggler";
-import ThemeToggle from "./ThemeToggle";
 import { useSelector } from "react-redux";
 
 const NavbarMain = () => {
@@ -16,7 +15,6 @@ const NavbarMain = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           <span className="sm:hidden lg:inline-flex">
             <NavbarBtn />
           </span>

@@ -26,7 +26,7 @@ const BeyondMain = () => {
 
   return (
     <div className="mt-[120px]">
-      <div className="max-w-[1200px] mx-auto bg-brown rounded-3xl py-16 px-4 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto bg-brown rounded-3xl py-16 px-4 overflow-x-clip">
         {/* Heading */}
         <motion.div
           variants={fadeIn("down", 0)}
@@ -79,21 +79,21 @@ const BeyondMain = () => {
               alt=""
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
             />
-
-            {/* Navigation arrows */}
-            <button
-              onClick={prev}
-              className="absolute left-2 lg:left-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
-            >
-              <BsChevronLeft />
-            </button>
-            <button
-              onClick={next}
-              className="absolute right-2 lg:right-[-50px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-darkBrown/80 border border-lightBrown/30 flex items-center justify-center text-white hover:bg-brown transition-colors z-10"
-            >
-              <BsChevronRight />
-            </button>
           </div>
+
+          {/* Navigation arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-[-20px] lg:left-[-60px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBrown border border-lightBrown/30 flex items-center justify-center text-white hover:bg-cyan hover:border-cyan transition-all duration-300 z-10 shadow-lg"
+          >
+            <BsChevronLeft className="text-lg" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-[-20px] lg:right-[-60px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBrown border border-lightBrown/30 flex items-center justify-center text-white hover:bg-cyan hover:border-cyan transition-all duration-300 z-10 shadow-lg"
+          >
+            <BsChevronRight className="text-lg" />
+          </button>
 
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">

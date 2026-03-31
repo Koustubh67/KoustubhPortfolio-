@@ -91,8 +91,7 @@ const AboutMeMain = () => {
         </button>
         <a
           href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+          download="Koustubh_Dubey_Resume.pdf"
           className="border border-cyan rounded-full py-2 px-6 text-lg hover:bg-cyan transition-all duration-500 cursor-pointer text-white"
         >
           Download Resume

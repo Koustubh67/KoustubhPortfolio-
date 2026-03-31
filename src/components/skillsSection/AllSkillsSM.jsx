@@ -12,9 +12,14 @@ import { SiFirebase } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { TbApi } from "react-icons/tb";
+import { SiSupabase } from "react-icons/si";
+import { SiPostgresql } from "react-icons/si";
+import { SiBootstrap } from "react-icons/si";
+import { TbSql } from "react-icons/tb";
+import { SiGithubcopilot } from "react-icons/si";
+import { SiClaude } from "react-icons/si";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
-import { useTheme } from "../../context/ThemeContext";
 
 const skills = [
   { skill: "HTML", icon: FaHtml5, color: "#E34F26" },
@@ -32,10 +37,15 @@ const skills = [
   { skill: "AWS", icon: FaAws, color: "#FF9900" },
   { skill: "REST APIs", icon: TbApi, color: "#49C7A8" },
   { skill: "GitHub", icon: FaGithub, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  { skill: "Supabase", icon: SiSupabase, color: "#3FCF8E" },
+  { skill: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { skill: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { skill: "SQL", icon: TbSql, color: "#e38d00", lightColor: "#CC7A00" },
+  { skill: "Copilot", icon: SiGithubcopilot, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  { skill: "Claude", icon: SiClaude, color: "#D97757" },
 ];
 
 const AllSkillsSM = () => {
-  const { isDark } = useTheme();
   return (
     <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-10 my-12">
       {skills.map((item, index) => {
@@ -50,7 +60,7 @@ const AllSkillsSM = () => {
           >
             <item.icon
               className="text-6xl"
-              style={{ color: !isDark && item.lightColor ? item.lightColor : item.color }}
+              style={{ color: item.lightColor || item.color }}
             />
             <p className="text-center mt-3 text-sm text-lightGrey">{item.skill}</p>
           </motion.div>

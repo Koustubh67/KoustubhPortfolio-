@@ -39,8 +39,8 @@ export default {
           "10px 10px 2000px 150px rgb(var(--color-orange) / 0.5)",
       },
       animation: {
-        marquee: "marquee 25s linear infinite",
-        "marquee-slow": "marquee 35s linear infinite",
+        marquee: "marquee 6s linear infinite",
+        "marquee-slow": "marquee 8s linear infinite",
       },
       keyframes: {
         marquee: {

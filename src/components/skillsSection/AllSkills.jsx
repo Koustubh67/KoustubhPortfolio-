@@ -12,31 +12,46 @@ import { SiFirebase } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { TbApi } from "react-icons/tb";
+import { SiSupabase } from "react-icons/si";
+import { SiPostgresql } from "react-icons/si";
+import { SiBootstrap } from "react-icons/si";
+import { TbSql } from "react-icons/tb";
+import { SiGithubcopilot } from "react-icons/si";
+import { SiClaude } from "react-icons/si";
 import { motion } from "framer-motion";
-import { useTheme } from "../../context/ThemeContext";
 
 const skills = [
-  { skill: "HTML", icon: FaHtml5, top: "5%", left: "10%", size: "text-6xl", delay: 0, color: "#E34F26" },
-  { skill: "CSS", icon: FaCss3Alt, top: "10%", left: "35%", size: "text-7xl", delay: 0.1, color: "#1572B6" },
-  { skill: "JavaScript", icon: IoLogoJavascript, top: "3%", left: "60%", size: "text-8xl", delay: 0.2, color: "#F7DF1E", lightColor: "#C5A500" },
-  { skill: "Java", icon: FaJava, top: "8%", left: "85%", size: "text-6xl", delay: 0.3, color: "#ED8B00" },
-  { skill: "ReactJS", icon: FaReact, top: "30%", left: "6%", size: "text-8xl", delay: 0.15, color: "#61DAFB", lightColor: "#0097A7" },
-  { skill: "React Native", icon: FaReact, top: "33%", left: "32%", size: "text-6xl", delay: 0.25, color: "#61DAFB", lightColor: "#0097A7" },
-  { skill: "Flutter", icon: SiFlutter, top: "28%", left: "52%", size: "text-7xl", delay: 0.35, color: "#02569B" },
-  { skill: "NextJS", icon: SiNextdotjs, top: "35%", left: "78%", size: "text-6xl", delay: 0.2, color: "#f1e1d9", lightColor: "#1a1a1a" },
-  { skill: "Redux", icon: SiRedux, top: "55%", left: "12%", size: "text-7xl", delay: 0.3, color: "#764ABC" },
-  { skill: "TailwindCSS", icon: RiTailwindCssFill, top: "58%", left: "36%", size: "text-6xl", delay: 0.1, color: "#06B6D4" },
-  { skill: "Firebase", icon: SiFirebase, top: "53%", left: "58%", size: "text-8xl", delay: 0.25, color: "#FFCA28", lightColor: "#E6A800" },
-  { skill: "MySQL", icon: SiMysql, top: "60%", left: "82%", size: "text-6xl", delay: 0.15, color: "#4479A1" },
-  { skill: "AWS", icon: FaAws, top: "78%", left: "18%", size: "text-7xl", delay: 0.2, color: "#FF9900" },
-  { skill: "REST APIs", icon: TbApi, top: "76%", left: "48%", size: "text-6xl", delay: 0.35, color: "#49C7A8" },
-  { skill: "GitHub", icon: FaGithub, top: "80%", left: "75%", size: "text-7xl", delay: 0.1, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  // Row 1 (top: ~3-8%)
+  { skill: "HTML", icon: FaHtml5, top: "3%", left: "5%", size: "text-6xl", delay: 0, color: "#E34F26" },
+  { skill: "CSS", icon: FaCss3Alt, top: "5%", left: "25%", size: "text-7xl", delay: 0.1, color: "#1572B6" },
+  { skill: "JavaScript", icon: IoLogoJavascript, top: "3%", left: "48%", size: "text-7xl", delay: 0.2, color: "#F7DF1E", lightColor: "#C5A500" },
+  { skill: "Java", icon: FaJava, top: "5%", left: "70%", size: "text-6xl", delay: 0.3, color: "#ED8B00" },
+  { skill: "SQL", icon: TbSql, top: "3%", left: "88%", size: "text-6xl", delay: 0.15, color: "#e38d00", lightColor: "#CC7A00" },
+  // Row 2 (top: ~22-28%)
+  { skill: "ReactJS", icon: FaReact, top: "22%", left: "8%", size: "text-8xl", delay: 0.15, color: "#61DAFB", lightColor: "#0097A7" },
+  { skill: "React Native", icon: FaReact, top: "25%", left: "32%", size: "text-6xl", delay: 0.25, color: "#61DAFB", lightColor: "#0097A7" },
+  { skill: "Flutter", icon: SiFlutter, top: "22%", left: "55%", size: "text-7xl", delay: 0.35, color: "#02569B" },
+  { skill: "NextJS", icon: SiNextdotjs, top: "25%", left: "78%", size: "text-6xl", delay: 0.2, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  // Row 3 (top: ~42-48%)
+  { skill: "Redux", icon: SiRedux, top: "42%", left: "5%", size: "text-7xl", delay: 0.3, color: "#764ABC" },
+  { skill: "TailwindCSS", icon: RiTailwindCssFill, top: "44%", left: "25%", size: "text-6xl", delay: 0.1, color: "#06B6D4" },
+  { skill: "Bootstrap", icon: SiBootstrap, top: "42%", left: "46%", size: "text-6xl", delay: 0.1, color: "#7952B3" },
+  { skill: "Supabase", icon: SiSupabase, top: "44%", left: "66%", size: "text-6xl", delay: 0.15, color: "#3FCF8E" },
+  { skill: "Firebase", icon: SiFirebase, top: "42%", left: "86%", size: "text-7xl", delay: 0.25, color: "#FFCA28", lightColor: "#E6A800" },
+  // Row 4 (top: ~62-68%)
+  { skill: "MySQL", icon: SiMysql, top: "62%", left: "8%", size: "text-6xl", delay: 0.15, color: "#4479A1" },
+  { skill: "PostgreSQL", icon: SiPostgresql, top: "64%", left: "30%", size: "text-7xl", delay: 0.25, color: "#4169E1" },
+  { skill: "AWS", icon: FaAws, top: "62%", left: "52%", size: "text-7xl", delay: 0.2, color: "#FF9900" },
+  { skill: "REST APIs", icon: TbApi, top: "64%", left: "74%", size: "text-6xl", delay: 0.35, color: "#49C7A8" },
+  // Row 5 (top: ~82-86%)
+  { skill: "GitHub", icon: FaGithub, top: "82%", left: "10%", size: "text-7xl", delay: 0.1, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  { skill: "Copilot", icon: SiGithubcopilot, top: "84%", left: "38%", size: "text-6xl", delay: 0.2, color: "#f1e1d9", lightColor: "#1a1a1a" },
+  { skill: "Claude", icon: SiClaude, top: "82%", left: "65%", size: "text-6xl", delay: 0.35, color: "#D97757" },
 ];
 
 const AllSkills = () => {
-  const { isDark } = useTheme();
   return (
-    <div className="relative w-full h-[750px] max-w-[1100px] mx-auto">
+    <div className="relative w-full h-[850px] max-w-[1100px] mx-auto">
       {skills.map((item, index) => (
         <motion.div
           key={index}
@@ -50,7 +65,7 @@ const AllSkills = () => {
         >
           <item.icon
             className={`${item.size} drop-shadow-lg transition-transform duration-300`}
-            style={{ color: !isDark && item.lightColor ? item.lightColor : item.color }}
+            style={{ color: item.lightColor || item.color }}
           />
           <span className="text-xs text-lightGrey opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {item.skill}
