@@ -6,7 +6,7 @@ const tags = [
   { label: "Cross-Platform Apps", top: "8%", left: "12%", rotate: "-5deg" },
   { label: "API Integration", top: "5%", left: "45%", rotate: "3deg" },
   { label: "Mobile Development", top: "10%", left: "72%", rotate: "-2deg" },
-  { label: "QA Testing", top: "28%", left: "5%", rotate: "4deg" },
+  { label: "Backend Development", top: "28%", left: "5%", rotate: "4deg" },
   { label: "Performance Optimization", top: "32%", left: "68%", rotate: "-4deg" },
   { label: "CI/CD Workflow", top: "65%", left: "3%", rotate: "-3deg" },
   { label: "Agile Methodology", top: "68%", left: "70%", rotate: "5deg" },

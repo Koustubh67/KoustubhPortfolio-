@@ -25,17 +25,20 @@ const AboutMeMain = () => {
         viewport={{ once: false, amount: 0.5 }}
         className="text-lg md:text-xl text-lightGrey leading-relaxed mb-8"
       >
-        I&apos;m a software developer with a strong foundation in{" "}
+        I&apos;m a full stack developer with 2.5+ years of experience building
+        web and mobile apps, with{" "}
         <span className="text-white underline decoration-cyan underline-offset-4">
-          cross-platform development
+          Java &amp; Spring Boot
         </span>{" "}
-        and hands-on experience delivering{" "}
-        <span className="text-cyan font-bold">10+ live apps</span> across mobile
-        and web. I specialize in turning complex requirements into{" "}
+        on the backend and{" "}
         <span className="text-white underline decoration-orange underline-offset-4">
-          clean, performant
+          React &amp; TypeScript
         </span>{" "}
-        experiences that are ready for production.
+        on the frontend. Apps I&apos;ve built are live on the{" "}
+        <span className="text-cyan font-bold">App Store</span> and{" "}
+        <span className="text-cyan font-bold">Google Play</span>, including a
+        real estate app with{" "}
+        <span className="text-white font-bold">10K+ downloads</span>.
       </motion.p>
 
       <motion.p
@@ -45,14 +48,9 @@ const AboutMeMain = () => {
         viewport={{ once: false, amount: 0.5 }}
         className="text-lg md:text-xl text-lightGrey leading-relaxed mb-8"
       >
-        From building{" "}
-        <span className="text-white">React Native apps</span> and shipping to
-        the <span className="text-cyan font-bold">App Store</span>, to managing{" "}
-        <span className="text-white">20+ member teams</span> and streamlining{" "}
-        <span className="text-white underline decoration-cyan underline-offset-4">
-          QA workflows
-        </span>
-        , I focus on solutions that move seamlessly from{" "}
+        From <span className="text-white">Flutter apps</span> at Zapplogics to
+        a <span className="text-white">Spring Boot banking system</span> with
+        tested, secure transactions, I own my work end to end, from{" "}
         <span className="text-orange font-bold">idea</span> to{" "}
         <span className="text-orange font-bold">deployment</span>.
       </motion.p>

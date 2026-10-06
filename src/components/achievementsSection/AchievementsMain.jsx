@@ -1,7 +1,12 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useAnimationFrame, useInView, useMotionValue } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
 
 const images = [
+  { src: "/images/jobpilot.jpg", alt: "JobPilot AI - AI Job Copilot" },
+  { src: "/images/cyberfriction.jpg", alt: "Cyberfriction - Motion-led Studio Website" },
+  { src: "/images/javabank.jpg", alt: "JavaBank - Spring Boot Banking App" },
+  { src: "/images/raktflow.jpg", alt: "RaktFlow - Blood Delivery Platform" },
   { src: "/images/try that .webp", alt: "TryThat Legacy - Property Management App" },
   { src: "/images/resturant app .webp", alt: "Hotel Management App" },
   { src: "/images/pg .webp", alt: "PG Management App" },
@@ -14,7 +19,28 @@ const images = [
   { src: "/images/blood.jpg", alt: "Blood Donation App" },
 ];
 
+const SPEED = 0.06; // px per ms
+const HOVER_SPEED = 0.015; // px per ms while the pointer is over the strip
+
 const AchievementsMain = () => {
+  const stripRef = useRef(null);
+  const trackRef = useRef(null);
+  const x = useMotionValue(0);
+  const speed = useRef(SPEED);
+  const hovered = useRef(false);
+  const inView = useInView(stripRef);
+
+  useAnimationFrame((_, delta) => {
+    if (!inView) return;
+    const dt = Math.min(delta, 50);
+    // Ease toward the target speed so hovering glides down instead of snapping
+    const target = hovered.current ? HOVER_SPEED : SPEED;
+    speed.current += (target - speed.current) * Math.min(dt * 0.004, 1);
+    // The track holds the images twice, so wrap after one full set
+    const loop = trackRef.current.offsetWidth / 2;
+    x.set((x.get() - speed.current * dt) % loop);
+  });
+
   return (
     <div className="mt-[120px]">
       {/* Heading */}
@@ -35,12 +61,17 @@ const AchievementsMain = () => {
       </motion.div>
 
       {/* Scrolling carousel */}
-      <div className="overflow-hidden">
-        <div className="flex animate-marquee-slow gap-6 py-4">
+      <div
+        ref={stripRef}
+        className="overflow-hidden"
+        onMouseEnter={() => (hovered.current = true)}
+        onMouseLeave={() => (hovered.current = false)}
+      >
+        <motion.div ref={trackRef} className="flex w-max py-4" style={{ x }}>
           {[...images, ...images].map((img, i) => (
             <div
               key={i}
-              className="shrink-0 w-[300px] md:w-[380px] h-[220px] md:h-[280px] rounded-2xl overflow-hidden border border-lightBrown/50 hover:border-cyan/30 transition-all duration-500 group"
+              className="shrink-0 mr-6 w-[300px] md:w-[380px] h-[220px] md:h-[280px] rounded-2xl overflow-hidden border border-lightBrown/50 hover:border-cyan/30 transition-all duration-500 group"
             >
               <img
                 src={img.src}
@@ -49,7 +80,7 @@ const AchievementsMain = () => {
               />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

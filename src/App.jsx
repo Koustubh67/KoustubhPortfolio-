@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-      <main className="font-body text-white relative overflow-hidden">
+      <main className="font-body text-white relative overflow-clip">
         <NavbarMain />
         <HeroMain />
         <HeroGradient />

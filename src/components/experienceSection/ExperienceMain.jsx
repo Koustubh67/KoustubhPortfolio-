@@ -4,24 +4,22 @@ import { FaBriefcase } from "react-icons/fa";
 
 const experiences = [
   {
-    role: "QA & Front-End Developer",
+    role: "Software Developer",
     company: "Zapplogics Solution",
     period: "Feb 2024 - Present",
     logo: "/images/zapp.png",
     gradient: "from-[#0f2027] via-[#203a43] to-[#2c5364]",
     highlights: [
-      "Tested & validated 50+ mobile apps",
-      "Deployed 4+ production-ready apps",
-      "Managed 20+ member team",
-      "Reduced production bugs by 40%",
+      "4+ apps shipped to the App Store",
+      "Flutter & Firebase real-time apps",
+      "End-to-end App Store releases",
+      "Agile team of 20+",
     ],
     details: [
-      "Performed testing and quality validation for 50+ mobile applications, improving crash stability by 35% and reducing production bugs by 40%.",
-      "Developed and deployed 4+ production-ready mobile applications with optimized UI performance and improved load time by 40%.",
-      "Collaborated with cross-functional teams including designers, backend developers, and product managers in Agile development cycles.",
-      "Managed coordination of a 20+ member team, ensuring task alignment, QA validation, and smooth project delivery.",
-      "Oversaw deployment and release processes, including build verification, testing cycles, and production rollout.",
-      "Introduced improved QA workflows and testing documentation, reducing release delays by 20%.",
+      "Developed and shipped 4+ production mobile apps with Flutter and Firebase, including a restaurant management app and a PG management app, both live on the Apple App Store.",
+      "Implemented staff shifts, reservations, billing, parking and menu modules for the restaurant app, and member dashboards, payment tracking and maintenance requests for the PG app, with Firebase real-time sync.",
+      "Managed App Store releases end to end, from release builds and review submissions to production rollout.",
+      "Collaborated in Agile sprints with a 20+ person team of designers, backend developers and product managers.",
     ],
   },
   {

@@ -6,8 +6,9 @@ import {
   SiJavascript,
   SiHtml5,
   SiCss3,
+  SiSpringboot,
 } from "react-icons/si";
-import { MdOutlineSpeed, MdGroups, MdBugReport } from "react-icons/md";
+import { MdOutlineSpeed, MdGroups } from "react-icons/md";
 
 const tags = [
   { label: "React.js", icon: FaReact },
@@ -21,7 +22,7 @@ const tags = [
   { label: "Git & GitHub", icon: FaGitAlt },
   { label: "Cross-Platform Dev", icon: FaCode },
   { label: "Performance Optimization", icon: MdOutlineSpeed },
-  { label: "QA Engineering", icon: MdBugReport },
+  { label: "Java & Spring Boot", icon: SiSpringboot },
   { label: "Team Coordination", icon: MdGroups },
 ];
 

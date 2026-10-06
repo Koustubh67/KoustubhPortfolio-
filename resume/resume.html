@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Koustubh Dubey – Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Open in Chrome → Print → "Save as PDF", Margins: Default, to regenerate the PDF */
+  @page { size: A4; margin: 10mm 13mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.1pt;
+    line-height: 1.33;
+    color: #1f2328;
+    background: #fff;
+  }
+  a { color: #0e6a7a; text-decoration: none; }
+  header { text-align: center; }
+  h1 { font-size: 20pt; font-weight: 700; letter-spacing: 0.02em; }
+  .headline { font-size: 10.5pt; font-weight: 600; color: #0e6a7a; margin-top: 2px; }
+  .contact { margin-top: 4px; font-size: 8.5pt; color: #3d444d; }
+  .contact-links { margin-top: 1px; }
+  .contact span + span::before { content: "·"; margin: 0 5px; color: #9198a1; }
+  h2 {
+    font-size: 9.6pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: #0e6a7a; border-bottom: 1px solid #d0d7de; padding-bottom: 2px; margin: 10px 0 4px;
+  }
+  .summary { color: #2f363d; }
+  .entry + .entry { margin-top: 6px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .title { font-weight: 600; }
+  .org { color: #3d444d; }
+  .meta { font-size: 8.8pt; color: #59636e; white-space: nowrap; }
+  .stack { font-size: 8.8pt; color: #59636e; font-style: italic; }
+  ul { margin: 2px 0 0 14px; }
+  li { margin-top: 1px; padding-left: 2px; }
+  li::marker { color: #9198a1; }
+  .skills { display: grid; grid-template-columns: 98px 1fr; row-gap: 2px; }
+  .skills dt { font-weight: 600; }
+  .note { margin-top: 5px; font-size: 8.8pt; color: #3d444d; }
+</style>
+</head>
+<body>
+<header>
+  <h1>KOUSTUBH DUBEY</h1>
+  <p class="headline">Full Stack Developer | Java, Spring Boot, React, TypeScript</p>
+  <p class="contact">
+    <span>Bhopal, Madhya Pradesh, India</span>
+    <span>+91 72229 93487</span>
+    <span><a href="mailto:koustubh2002@gmail.com">koustubh2002@gmail.com</a></span>
+  </p>
+  <p class="contact contact-links">
+    <span><a href="https://www.linkedin.com/in/koustubh-dubey-9063a7221/">linkedin.com/in/koustubh-dubey-9063a7221</a></span>
+    <span><a href="https://github.com/Koustubh67">github.com/Koustubh67</a></span>
+  </p>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">
+  Full Stack Developer with 2.5+ years of experience building and deploying web and mobile applications with Java,
+  Spring Boot, React, TypeScript, React Native and Flutter. Shipped production apps to the Apple App Store and
+  Google Play (10K+ downloads), with tested, secure backends using Spring Security, Spring Data JPA, MySQL and CI/CD.
+</p>
+
+<h2>Work Experience</h2>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">Software Developer</span> <span class="org">· Zapplogics Solution</span></p>
+    <p class="meta">Feb 2024 – Present</p>
+  </div>
+  <ul>
+    <li>Developed and shipped 4+ production mobile apps with Flutter and Firebase, including a restaurant management app and a PG management app, both live on the Apple App Store.</li>
+    <li>Implemented staff shifts, reservations, billing, parking and menu modules for the restaurant app, and member dashboards, payment tracking and maintenance requests for the PG app, with Firebase real-time sync.</li>
+    <li>Managed App Store releases end to end, from release builds and review submissions to production rollout.</li>
+    <li>Collaborated in Agile sprints with a 20+ person team of designers, backend developers and product managers.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">IT Trainee</span> <span class="org">· Bharat Heavy Electricals Limited (BHEL)</span></p>
+    <p class="meta">2024</p>
+  </div>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">IT Trainee</span> <span class="org">· Glenmark Pharmaceuticals</span></p>
+    <p class="meta">2022</p>
+  </div>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">JavaBank</span> <span class="stack">| Java 17, Spring Boot, Spring Security, Spring Data JPA, MySQL, Docker</span></p>
+    <p class="meta"><a href="https://bank-management-system-with-java-and-9ddj.onrender.com/">Live</a> · <a href="https://github.com/Koustubh67/Bank-Management-System-with-Java-and-Mysql">Code</a></p>
+  </div>
+  <ul>
+    <li>Built a full stack banking application with account opening, a web ATM, UPI-style payments with QR codes and PIN, loans with EMI schedules, and a staff admin panel.</li>
+    <li>Engineered safe money movement with BigDecimal arithmetic, @Transactional all-or-nothing transfers, pessimistic row locking and an append-only ledger; secured logins with Spring Security and BCrypt.</li>
+    <li>Integrated live NAVs for 17 mutual funds from a public REST API with a 30-minute cache and parallel preloading (~0.2s page loads); automated monthly SIP debits with scheduled jobs.</li>
+    <li>Wrote 27 JUnit test classes run in a GitHub Actions CI pipeline; versioned the MySQL schema with Flyway.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">TryThat – Real Estate App</span> <span class="stack">| React Native, REST APIs</span></p>
+    <p class="meta"><a href="https://play.google.com/store/apps/details?id=com.trythat.ai&amp;hl=en">Google Play</a></p>
+  </div>
+  <ul>
+    <li>Shipped the complete UI and REST API integration for property rental and sale listings, including office spaces, with search and filters; live on Google Play with 10K+ downloads.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">RaktFlow</span> <span class="stack">| React, TypeScript, Zustand, React Router, Tailwind CSS, Leaflet</span></p>
+    <p class="meta"><a href="https://raktflow.netlify.app/">Live</a> · <a href="https://github.com/Koustubh67/Blood-Bank-Management-System-">Code</a></p>
+  </div>
+  <ul>
+    <li>Designed a blood delivery platform prototype for 37 cities with role-based flows for families, hospitals and operations staff: 4-step ordering, UPI and card checkout with Luhn validation, and live map tracking with ETA.</li>
+    <li>Created an operations console with an urgency-scored priority board, nearest-rider auto-dispatch and a surge mode that borrows riders from nearby stores.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">Hyphn</span> <span class="stack">| React, Supabase, PostgreSQL, AWS S3</span></p>
+    <p class="meta"><a href="https://hyphn.tech/">Live</a></p>
+  </div>
+  <ul>
+    <li>Delivered REST APIs on Supabase and PostgreSQL, integrated them with the React frontend, and added AWS S3 storage for secure file uploads.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <p><span class="title">Cyberfriction</span> <span class="stack">| React 19, GSAP, Three.js, GLSL, Vite</span></p>
+    <p class="meta"><a href="https://korieanwebpage.netlify.app/">Live</a> · <a href="https://github.com/Koustubh67/Korian-webpage">Code</a></p>
+  </div>
+  <ul>
+    <li>Optimized a scroll-driven site's 300-frame sequence from 70 MB to 17.7 MB (-75%) with WebP and progressive loading, rendered through a custom GLSL shader.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt><dd>Java, JavaScript, TypeScript, SQL, HTML, CSS</dd>
+  <dt>Backend</dt><dd>Spring Boot, Spring Security, Spring Data JPA (Hibernate), REST APIs, Thymeleaf, JUnit, Supabase</dd>
+  <dt>Frontend</dt><dd>React, Next.js, Redux Toolkit, Zustand, React Router, Tailwind CSS, GSAP, Three.js</dd>
+  <dt>Mobile</dt><dd>React Native, Flutter</dd>
+  <dt>Databases</dt><dd>MySQL, PostgreSQL, Firebase, Flyway</dd>
+  <dt>DevOps &amp; Tools</dt><dd>Git, GitHub Actions (CI/CD), Docker, Maven, AWS S3, Netlify, Render, App Store Connect, Play Console</dd>
+  <dt>Concepts</dt><dd>OOP, Data Structures &amp; Algorithms, DBMS, REST API Design, Agile/Scrum</dd>
+</dl>
+
+<h2>Education</h2>
+<div class="row">
+  <p><span class="title">B.Tech, Computer Science &amp; Engineering</span> <span class="org">· Oriental College of Technology, Bhopal · CGPA 8.0</span></p>
+  <p class="meta">2020 – 2024</p>
+</div>
+</body>
+</html>

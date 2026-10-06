@@ -55,12 +55,12 @@ const HeroText = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0 }}
-        className="md:max-w-[320px] md:text-left sm:text-center sm:mt-8 sm:max-w-[400px] mt-6"
+        className="md:max-w-[320px] lg:max-w-[440px] md:text-left sm:text-center sm:mt-8 sm:max-w-[400px] mt-6"
       >
         <p className="text-white text-lg leading-relaxed">
-          A full stack developer turned product builder with 1+ years of
-          experience, building and deploying 10+ mobile &amp; web apps with
-          React Native, Flutter &amp; React.js.
+          Full stack developer with 2.5+ years of experience shipping web
+          &amp; mobile apps with Java, Spring Boot, React &amp; Flutter, live
+          on the App Store and Google Play.
         </p>
       </motion.div>
 
