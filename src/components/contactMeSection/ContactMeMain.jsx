@@ -13,7 +13,7 @@ const contactRows = [
   },
   {
     label: "Phone No.",
-    value: "+91 7222993487 , 9893199324",
+    value: "+91 7222993487, 9893199324",
     href: "tel:+917222993487",
     Icon: FiPhone,
   },
@@ -64,13 +64,17 @@ const ContactMeMain = () => {
             href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="flex items-center justify-between px-6 py-5 rounded-xl border border-lightBrown/40 bg-brown hover:border-cyan/50 transition-all duration-300 group"
+            // Narrow phones stack the value under its label instead of
+            // squeezing both onto one wrapped line
+            className="flex flex-col items-start gap-1.5 text-left min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between px-5 py-4 min-[480px]:px-6 min-[480px]:py-5 rounded-xl border border-lightBrown/40 bg-brown hover:border-cyan/50 transition-all duration-300 group"
           >
-            <span className="flex items-center gap-3 text-lightGrey group-hover:text-cyan transition-colors">
+            <span className="flex items-center gap-3 shrink-0 text-lightGrey group-hover:text-cyan transition-colors">
               <Icon className="text-xl" />
               {label}
             </span>
-            <span className="text-white text-sm md:text-base">{value}</span>
+            <span className="pl-8 min-[480px]:pl-0 min-[480px]:text-right text-white text-sm md:text-base break-words">
+              {value}
+            </span>
           </a>
         ))}
       </motion.div>

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
-import { FaRocket } from "react-icons/fa";
 
 const tags = [
   { label: "Cross-Platform Apps", top: "8%", left: "12%", rotate: "-5deg" },
@@ -37,20 +36,22 @@ const SubSkills = () => {
       ))}
 
       {/* Center content */}
-      <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 text-center z-10 pt-10 lg:pt-0">
+      <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-max text-center z-10 pt-10 lg:pt-0">
         <motion.div
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.5 }}
         >
-          <FaRocket className="text-5xl text-orange mx-auto mb-4" />
-          <h2 className="text-4xl md:text-5xl font-special italic text-white mb-4">
-            How I Build Products
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-orange mb-4">
+            How I Work
+          </p>
+          <h2 className="text-5xl md:text-6xl font-special italic text-cyan mb-4">
+            What I Bring to the Table
           </h2>
           <p className="text-lightGrey text-lg max-w-[500px] mx-auto">
-            Building scalable mobile and web products through agile practices,
-            rigorous testing, and a focus on real-world performance.
+            I build it, test it, and ship it, across web and mobile, so the
+            product works as well in production as it did in the demo.
           </p>
         </motion.div>
       </div>

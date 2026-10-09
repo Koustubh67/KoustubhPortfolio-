@@ -9,7 +9,7 @@ import {
   useVelocity,
 } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
-import { BsArrowDown, BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import {
   SiReact,
   SiFlutter,
@@ -32,7 +32,7 @@ const projects = [
   {
     name: "JobPilot AI",
     type: "web",
-    year: "2026",
+    date: "2026-09",
     tag: "Next.js | Supabase | Gemini",
     image: "/images/jobpilot.jpg",
     live: "https://job-ai-by-kd.vercel.app/",
@@ -49,7 +49,7 @@ const projects = [
   {
     name: "Cyberfriction",
     type: "web",
-    year: "2026",
+    date: "2026-04",
     tag: "React | Three.js | GSAP",
     image: "/images/cyberfriction.jpg",
     live: "https://korieanwebpage.netlify.app/",
@@ -66,7 +66,7 @@ const projects = [
   {
     name: "JavaBank",
     type: "web",
-    year: "2026",
+    date: "2025-08",
     tag: "Java | Spring Boot",
     image: "/images/javabank.jpg",
     live: "https://bank-management-system-with-java-and-9ddj.onrender.com/",
@@ -83,7 +83,7 @@ const projects = [
   {
     name: "RaktFlow",
     type: "web",
-    year: "2026",
+    date: "2026-07",
     tag: "React | Tailwind",
     image: "/images/raktflow.jpg",
     live: "https://raktflow.netlify.app/",
@@ -100,7 +100,7 @@ const projects = [
   {
     name: "TryThat-Legacy",
     type: "mobile",
-    year: "2024",
+    date: "2025-03",
     tag: "React Native | Mobile",
     image: "/images/try that .webp",
     live: "https://play.google.com/store/apps/details?id=com.trythat.ai&hl=en",
@@ -119,7 +119,7 @@ const projects = [
   {
     name: "Hotel Management App",
     type: "mobile",
-    year: "2024",
+    date: "2024-09",
     tag: "Flutter | Firebase",
     image: "/images/resturant app .webp",
     link: "https://github.com/Koustubh67",
@@ -136,7 +136,7 @@ const projects = [
   {
     name: "PG Management App",
     type: "mobile",
-    year: "2024",
+    date: "2025-01",
     tag: "Flutter | Firebase",
     image: "/images/pg .webp",
     link: "https://github.com/Koustubh67",
@@ -153,7 +153,7 @@ const projects = [
   {
     name: "Hyphn",
     type: "web",
-    year: "2024",
+    date: "2026-01",
     tag: "React.js | Supabase | AWS",
     image: "/images/hyphn.png",
     live: "https://hyphn.tech/",
@@ -170,7 +170,7 @@ const projects = [
   {
     name: "Tickite",
     type: "web",
-    year: "2024",
+    date: "2025-06",
     tag: "React.js | Web",
     image: "/images/tickite.png",
     link: "https://github.com/Koustubh67",
@@ -187,7 +187,7 @@ const projects = [
   {
     name: "Juvo",
     type: "web",
-    year: "2024",
+    date: "2025-10",
     tag: "React.js | Enterprise",
     image: "/images/juvo.png",
     link: "https://github.com/Koustubh67",
@@ -204,10 +204,10 @@ const projects = [
   {
     name: "Portfolio Website",
     type: "web",
-    year: "2024",
+    date: "2024-06",
     tag: "React.js | Tailwind",
     image: "/images/profile .png",
-    link: "https://github.com/Koustubh67",
+    live: "https://koustubdubey.netlify.app/",
     description:
       "React.js-based portfolio website with responsive design, Framer Motion animations, and performance optimization.",
     details: [
@@ -218,7 +218,22 @@ const projects = [
     ],
     techIcons: [SiReact, SiTailwindcss, FaGlobe],
   },
-];
+].sort(
+  // Live work leads, newest first within each group
+  (a, b) => Boolean(b.live) - Boolean(a.live) || b.date.localeCompare(a.date)
+);
+
+// Only the most recent project wears the NEW badge
+const NEWEST = projects.reduce((a, b) => (b.date > a.date ? b : a)).name;
+
+// "2026-09" -> "Sep 2026"
+const formatDate = (date) => {
+  const [year, month] = date.split("-");
+  return new Date(year, month - 1).toLocaleString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+};
 
 // The nearest data-cursor attribute decides: cards ask for the "view"
 // cursor and the buttons inside them opt back out
@@ -279,39 +294,13 @@ const FILTERS = [
   { key: "mobile", label: "Mobile", emoji: "📱", match: (p) => p.type === "mobile" },
 ];
 
-// "All" opens on the newest work; everything else is one tap away
-const PREVIEW_COUNT = 4;
-
-// Column spans for the 3-column bento grid. Rows cycle wide-left,
-// wide-right, three-up, and never leave a single card alone on a row.
-const bentoSpans = (count) => {
-  const patterns = [[2, 1], [1, 2], [1, 1, 1]];
-  const spans = [];
-  let left = count;
-  for (let row = 0; left > 0; row++) {
-    let pattern = patterns[row % 3];
-    if (left <= 3) pattern = left === 3 ? [1, 1, 1] : left === 2 ? (row % 2 ? [1, 2] : [2, 1]) : [3];
-    else if (left - pattern.length === 1) pattern = row % 2 ? [1, 2] : [2, 1];
-    spans.push(...pattern);
-    left -= pattern.length;
-  }
-  return spans;
-};
-
-// Two columns on tablets: the first card leads full width, the rest pair up
-const tabletSpan = (index, count) =>
-  index === 0 || (index === count - 1 && (count - 1) % 2 === 1) ? 2 : 1;
-
-const LG_SPAN = { 1: "lg:col-span-1", 2: "lg:col-span-2", 3: "lg:col-span-3" };
-const MD_SPAN = { 1: "md:col-span-1", 2: "md:col-span-2" };
-
 const HARD_SHADOW = "shadow-[6px_6px_0_0_rgb(var(--color-white))]";
 
-const ProjectCard = ({ project, wide, pastel }) => {
+const ProjectCard = ({ project, pastel }) => {
   const href = project.live ?? project.link;
   const liveLabel = project.liveLabel ?? "Visit site";
   const LiveIcon = project.liveIcon ?? BsArrowUpRight;
-  const isNew = project.year === "2026";
+  const isNew = project.name === NEWEST;
 
   return (
     <div
@@ -336,7 +325,7 @@ const ProjectCard = ({ project, wide, pastel }) => {
       )}
 
       {/* Image */}
-      <div className="relative h-[220px] md:h-[250px] lg:h-[260px] shrink-0 overflow-hidden rounded-[20px] border-[3px] border-white bg-darkBrown">
+      <div className="relative h-[200px] lg:h-[210px] shrink-0 overflow-hidden rounded-[20px] border-[3px] border-white bg-darkBrown">
         <img
           src={project.image}
           alt={project.name}
@@ -367,11 +356,11 @@ const ProjectCard = ({ project, wide, pastel }) => {
       {/* Content */}
       <div className="flex flex-1 flex-col px-2 pb-1">
         <div className="flex items-baseline justify-between gap-3">
-          <h3 className={`font-bold leading-tight text-white ${wide ? "text-3xl" : "text-2xl"}`}>
+          <h3 className="text-2xl font-bold leading-tight text-white">
             {project.name}
           </h3>
           <span className="shrink-0 font-special text-sm italic text-lightGrey">
-            {project.year}
+            {formatDate(project.date)}
           </span>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-lightGrey">{project.description}</p>
@@ -417,17 +406,13 @@ const ProjectCard = ({ project, wide, pastel }) => {
 
 const ProjectsMain = () => {
   const [filter, setFilter] = useState("all");
-  const [expanded, setExpanded] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const cursorX = useSpring(mouseX, { stiffness: 600, damping: 40, mass: 0.4 });
   const cursorY = useSpring(mouseY, { stiffness: 600, damping: 40, mass: 0.4 });
 
-  const matching = projects.filter(FILTERS.find((f) => f.key === filter).match);
-  const collapsed = filter === "all" && !expanded;
-  const shown = collapsed ? matching.slice(0, PREVIEW_COUNT) : matching;
-  const spans = bentoSpans(shown.length);
+  const shown = projects.filter(FILTERS.find((f) => f.key === filter).match);
 
   const trackCursor = (e) => {
     if (e.pointerType === "touch") return;
@@ -496,13 +481,14 @@ const ProjectsMain = () => {
         })}
       </div>
 
-      {/* Bento grid */}
+      {/* Every project at once, three to a row. Flex-wrap rather than grid
+          so a half-full last row sits centred. */}
       <div
         className="mt-12"
         onPointerMove={trackCursor}
         onPointerLeave={() => setCursorVisible(false)}
       >
-        <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="relative flex flex-wrap justify-center gap-6">
           <AnimatePresence mode="popLayout">
             {shown.map((project, i) => (
               <motion.div
@@ -513,11 +499,10 @@ const ProjectsMain = () => {
                 exit={{ opacity: 0, scale: 0.92 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.45, delay: (i % 3) * 0.08, ease: "easeOut" }}
-                className={`${MD_SPAN[tabletSpan(i, shown.length)]} ${LG_SPAN[spans[i]]}`}
+                className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
               >
                 <ProjectCard
                   project={project}
-                  wide={spans[i] > 1}
                   pastel={PASTELS[projects.indexOf(project) % PASTELS.length]}
                 />
               </motion.div>
@@ -525,18 +510,6 @@ const ProjectsMain = () => {
           </AnimatePresence>
         </div>
 
-        {filter === "all" && matching.length > PREVIEW_COUNT && (
-          <div className="mt-12 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setExpanded((e) => !e)}
-              className={`flex items-center gap-2 rounded-full border-[3px] border-white bg-[#c6f432] px-7 py-3 font-bold text-white ${HARD_SHADOW} transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_rgb(var(--color-white))] active:translate-x-1 active:translate-y-1 active:shadow-none`}
-            >
-              {expanded ? "Show less" : `See all ${matching.length} projects`}
-              <BsArrowDown className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
-            </button>
-          </div>
-        )}
       </div>
 
       <ViewCursor x={cursorX} y={cursorY} visible={cursorVisible} />

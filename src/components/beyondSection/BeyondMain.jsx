@@ -210,11 +210,10 @@ const BeyondMain = () => {
       <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-4 py-6 overflow-hidden">
         {/* Headline sits above the sphere so the photos never cover it */}
         <motion.h2
-          className="shrink-0 flex flex-wrap items-baseline justify-center gap-x-[0.25em] leading-none text-center text-[clamp(2.5rem,6vw,4rem)]"
+          className="shrink-0 leading-none text-center font-special italic text-cyan text-[clamp(2.5rem,6vw,3.75rem)]"
           style={{ opacity: headlineOpacity, scale: headlineScale }}
         >
-          <span className="font-body font-bold tracking-tight text-white">Beyond</span>
-          <span className="font-special italic text-cyan">The Code</span>
+          Beyond The Code
         </motion.h2>
 
         {/* 3D photo sphere. Its height is capped at what the width allows (the

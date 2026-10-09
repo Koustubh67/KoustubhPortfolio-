@@ -13,9 +13,11 @@ const AboutMeMain = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.7 }}
-        className="text-4xl md:text-5xl font-special italic text-white mb-12"
+        className="text-5xl md:text-6xl font-special italic text-cyan text-balance mb-12"
       >
-        Engineered To Perform. Built To Last.
+        Engineered To Perform.{" "}
+        <br className="hidden md:inline" />
+        Built To Last.
       </motion.h2>
 
       <motion.p
@@ -25,16 +27,17 @@ const AboutMeMain = () => {
         viewport={{ once: false, amount: 0.5 }}
         className="text-lg md:text-xl text-lightGrey leading-relaxed mb-8"
       >
-        I&apos;m a full stack developer with 2.5+ years of experience building
-        web and mobile apps, with{" "}
-        <span className="text-white underline decoration-cyan underline-offset-4">
-          Java &amp; Spring Boot
-        </span>{" "}
-        on the backend and{" "}
+        I&apos;m a full stack developer with 2.5+ years of experience, working
+        with{" "}
         <span className="text-white underline decoration-orange underline-offset-4">
           React &amp; TypeScript
         </span>{" "}
-        on the frontend. Apps I&apos;ve built are live on the{" "}
+        on the frontend and{" "}
+        <span className="text-white underline decoration-cyan underline-offset-4">
+          Node.js &amp; Express
+        </span>{" "}
+        on the backend. The <span className="text-white">Flutter apps</span>{" "}
+        I&apos;ve worked on are live on the{" "}
         <span className="text-cyan font-bold">App Store</span> and{" "}
         <span className="text-cyan font-bold">Google Play</span>, including a
         real estate app with{" "}
@@ -48,9 +51,11 @@ const AboutMeMain = () => {
         viewport={{ once: false, amount: 0.5 }}
         className="text-lg md:text-xl text-lightGrey leading-relaxed mb-8"
       >
-        From <span className="text-white">Flutter apps</span> at Zapplogics to
-        a <span className="text-white">Spring Boot banking system</span> with
-        tested, secure transactions, I own my work end to end, from{" "}
+        I started at Zapplogics in <span className="text-white">QA</span>, and
+        after a year I was promoted to{" "}
+        <span className="text-white">full stack development</span>, where
+        I&apos;ve spent the last 1.5+ years. Starting in QA taught me how
+        software breaks, so I test what I ship and own it end to end, from{" "}
         <span className="text-orange font-bold">idea</span> to{" "}
         <span className="text-orange font-bold">deployment</span>.
       </motion.p>
@@ -90,6 +95,8 @@ const AboutMeMain = () => {
         <a
           href="/resume.pdf"
           download="Koustubh_Dubey_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="border border-cyan rounded-full py-2 px-6 text-lg hover:bg-cyan transition-all duration-500 cursor-pointer text-white"
         >
           Download Resume

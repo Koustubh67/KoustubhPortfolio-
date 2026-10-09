@@ -254,11 +254,13 @@ const HeroPic = ({ progress, trackRef }) => {
       >
         {/* Background Hexagon Animation */}
         <div className="absolute -z-10 flex justify-center items-center animate-pulse">
-          <PiHexagonThin className="md:h-[90%] sm:h-[120%] min-h-[600px] w-auto text-cyan blur-md animate-[spin_20s_linear_infinite]" />
+          <PiHexagonThin className="md:h-[90%] sm:h-[120%] min-h-[min(600px,125vw)] md:min-h-[600px] w-auto text-cyan blur-md animate-[spin_20s_linear_infinite]" />
         </div>
 
+        {/* Side by side it shares the row with the text and must fit the
+            pinned screen height, desk included */}
         <motion.div
-          className="relative w-[min(420px,78vw)] aspect-[385/503]"
+          className="relative w-[min(420px,78vw)] md:w-[min(420px,38vw,52svh)] aspect-[385/503]"
           style={{ y: sceneY, scale: sceneScale }}
         >
           <svg

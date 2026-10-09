@@ -33,7 +33,7 @@ const HeroMain = () => {
 
   return (
     <section ref={sectionRef} className="relative md:h-[230vh]">
-      <div className="md:sticky md:top-0 md:h-svh pt-16 pb-16 md:py-4 min-h-[80vh] md:min-h-0 flex items-center">
+      <div className="md:sticky md:top-0 md:h-svh pt-16 pb-16 md:pt-32 md:pb-6 min-h-[80vh] md:min-h-0 flex items-center">
         <div className="max-w-[1200px] mx-auto relative px-4 w-full flex md:flex-row sm:flex-col items-center justify-between gap-8">
           <HeroText />
           <HeroPic progress={progress} trackRef={sceneTrackRef} />

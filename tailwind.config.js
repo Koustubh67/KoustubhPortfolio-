@@ -3,7 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "350px",
+      // sm: classes are this project's phone styles, so they start at 0
+      // and cover every phone, even ones narrower than 350px
+      sm: "0px",
       md: "768px",
       lg: "1024px",
       xl: "1280px",

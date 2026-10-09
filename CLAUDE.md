@@ -32,6 +32,6 @@ Each section lives in `src/components/<sectionName>/` with a `*Main.jsx` entry c
 
 **Theming:** Light mode only. All Tailwind colors reference CSS custom properties defined in `src/index.css` (e.g., `rgb(var(--color-cyan) / <alpha-value>)`). A `.force-light` utility class overrides variables to use dark-style colors inside specific containers (e.g., gradient cards).
 
-**Styling:** Tailwind with a fully custom color palette (replaces defaults, not extended) and custom fonts (Josefin Sans as `font-body`, Nunito as `font-special`) defined in `tailwind.config.js`. Breakpoints start at `sm: 350px`. Custom box shadows (`cyanShadow`, `orangeBigShadow`, etc.) and a marquee animation are in `theme.extend`.
+**Styling:** Tailwind with a fully custom color palette (replaces defaults, not extended) and custom fonts (Josefin Sans as `font-body`, Nunito as `font-special`) defined in `tailwind.config.js`. `sm` is `0px`: `sm:` classes are the phone styles and apply at every width until `md`/`lg` override them. Custom box shadows (`cyanShadow`, `orangeBigShadow`, etc.) and a marquee animation are in `theme.extend`.
 
 **Provider hierarchy** (in `src/main.jsx`): Redux Provider → App.
